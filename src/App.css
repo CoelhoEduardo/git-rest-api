@@ -17,6 +17,23 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.repo-card {
+  border:black solid 1px;
+  border-radius: 10px;
+  max-width: 300px;
+  width: 250px;
+  text-overflow: ellipsis;
+  height: auto;
+  max-height: 300px;
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);

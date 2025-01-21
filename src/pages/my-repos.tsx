@@ -1,23 +1,22 @@
-import "./App.css";
 import { useEffect, useState } from "react";
+import "./my-repos.css";
 
-type publicRepoType = {
+type myReposType = {
   id: number;
+  name: string;
   full_name: string;
-  description: string;
-  html_url: string;
-  fork: boolean;
+  stargazers_count: number;
+  description: number;
 };
 
-function App() {
-  const [repos, setRepos] = useState<publicRepoType[]>();
-
+export default function MyRepos() {
+  const [repos, setRepos] = useState<myReposType[]>();
   useEffect(() => {
     const headers = {
       Accept: "application/vnd.github+json",
       Authorization: `Bearer${import.meta.env.API_TOKEN}`,
     };
-    fetch("https://api.github.com/repositories", {
+    fetch("https://api.github.com/users/CoelhoEduardo/repos", {
       headers,
     })
       .then((response) => response.json())
@@ -27,17 +26,14 @@ function App() {
   return (
     <>
       <div className="container">
-        {repos?.slice(0, 10).map((r) => (
+        {repos?.map((r) => (
           <div key={r.id} className="repo-card">
-            <p>
-              <a href={r.html_url}>{r.full_name}</a>
-            </p>
+            <p>{r.name}</p>
             <p>{r.description}</p>
+            <p>{r.stargazers_count}</p>
           </div>
         ))}
       </div>
     </>
   );
 }
-
-export default App;

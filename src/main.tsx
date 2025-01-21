@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App.tsx";
 import { BrowserRouter, Route, Routes } from "react-router";
 import SideBar from "./components/sidebar/sidebar.tsx";
+import MyRepos from "./pages/my-repos.tsx";
 
 const root = document.getElementById("root");
 
@@ -15,10 +16,7 @@ createRoot(root!).render(
         <div className="childrens">
           <Routes>
             <Route path="/" element={<App />} />
-            <Route
-              path="meus-repositorios"
-              element={<div>meus repositorios</div>}
-            />
+            <Route path="meus-repositorios" element={<MyRepos />} />
             <Route path="favoritos" element={<div>favoritos</div>} />
           </Routes>
         </div>
