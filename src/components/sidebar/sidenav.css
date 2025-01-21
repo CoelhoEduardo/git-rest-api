@@ -1,0 +1,25 @@
+.side-container {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    padding: 16px 8px;
+    background: #1c1917;
+}
+
+.side-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nav-position {
+    width: 256px;
+}
+
+.nav-link {
+    padding: 8px 12px;
+    flex-grow: 1;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+}
