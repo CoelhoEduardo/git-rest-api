@@ -3,15 +3,15 @@
     width: 100%;
     justify-content: center;
     padding: 16px 8px;
-    background: #2b3566;
-    border-radius: 1rem;
+    background: rgb(61, 68, 77);
+    border-radius: 0.5rem;
 }
 
 
 .nav_link {
     padding: 8px 12px;
     flex-grow: 1;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 20px;
     font-weight: 500;
     text-decoration: none;

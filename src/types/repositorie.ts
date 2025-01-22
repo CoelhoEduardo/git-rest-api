@@ -14,16 +14,6 @@ export type RepositoriesProps = {
   owner: { login: string };
 };
 
-export type RepoCardProps = {
-  id?: number;
-  name: string;
-  login: string;
-  description?: string;
-  hasFavorite?: boolean;
-  language?: string;
-  updated_at?: string;
-};
-
 export type ContributorsProps = {
   avatar_url: string;
   html_url: string;

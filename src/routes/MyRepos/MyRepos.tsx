@@ -24,20 +24,20 @@ export const MyRepos = () => {
   return (
     <div className={classes.page}>
       <h2>Meus Repositórios</h2>
-      {isLoading && <Loader />}
+      <div className={classes.loader}>{isLoading && <Loader />}</div>
       {repos?.map((repo) => (
         <div className={classes.card_grid}>
-        <Card
-          key={repo.id}
-          title={
-            <Link to={`/detalhes/${repo.owner.login}/${repo.name}`}>
-              <h2>
-                {repo.owner.login}/{repo.name}
-              </h2>
-            </Link>
-          }
-          card_body={<p>{repo.description}</p>}
-        />
+          <Card
+            key={repo.id}
+            title={
+              <Link to={`/detalhes/${repo.owner.login}/${repo.name}`}>
+                <h2>
+                  {repo.owner.login}/{repo.name}
+                </h2>
+              </Link>
+            }
+            card_body={<p>{repo.description}</p>}
+          />
         </div>
       ))}
     </div>
