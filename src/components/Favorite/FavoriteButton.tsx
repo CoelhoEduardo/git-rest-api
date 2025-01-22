@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FavoriteProps } from "../../types/repositorie";
+import { FavoriteProps } from "../../types";
 import { BsStar, BsStarFill } from "react-icons/bs";
 import classes from "./FavoriteBtn.module.css";
 import { IconContext } from "react-icons";

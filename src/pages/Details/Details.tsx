@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { ContributorsProps, RepositoriesProps } from "../../types/repositorie";
+import { ContributorsProps, RepositoriesProps } from "../../types";
 import classes from "./Details.module.css";
 import { formatDate } from "../../utils";
 import { Loader, Card, FavoriteButton } from "../../components";

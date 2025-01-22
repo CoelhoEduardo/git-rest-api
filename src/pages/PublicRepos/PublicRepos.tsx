@@ -15,7 +15,6 @@ export const PublicRepos = () => {
 
   const loadRepos = async (sinceId: number) => {
     setIsLoading(true);
-    setError(false);
     setRepos(null);
 
     const headers = {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FavoriteProps } from "../../types/repositorie";
+import { FavoriteProps } from "../../types";
 import classes from "./Favorites.module.css";
 import { Link } from "react-router";
 import { Card, UnfavoriteButton } from "../../components";
