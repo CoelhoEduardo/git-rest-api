@@ -11,8 +11,9 @@
     margin-top: 6px;
 }
 
-.repo_card h2 {
+.repo_card h2, a {
     font-size: large;
+    text-decoration: underline;
 }
 
 .repo_card p {

@@ -30,6 +30,10 @@ const router = createBrowserRouter([
         path: "favoritos",
         element: <div>oi</div>,
       },
+      {
+        path: "detalhes",
+        element: <div>oi</div>,
+      },
     ],
   },
 ]);
