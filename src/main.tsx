@@ -2,25 +2,40 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
-import { BrowserRouter, Route, Routes } from "react-router";
-import SideBar from "./components/sidebar/sidebar.tsx";
-import MyRepos from "./pages/my-repos.tsx";
+import { RouterProvider, createBrowserRouter } from "react-router";
+import { MyRepos } from "./routes/MyRepos.tsx";
+import { Home } from "./routes/Home.tsx";
+import { PublicRepos } from "./routes/PublicRepos.tsx";
 
 const root = document.getElementById("root");
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "repositorios-publicos",
+        element: <PublicRepos />,
+      },
+      {
+        path: "meus-repositorios",
+        element: <MyRepos />,
+      },
+      {
+        path: "favoritos",
+        element: <div>oi</div>,
+      },
+    ],
+  },
+]);
+
 createRoot(root!).render(
   <StrictMode>
-    <BrowserRouter>
-      <div className="page-container">
-        <SideBar />
-        <div className="childrens">
-          <Routes>
-            <Route path="/" element={<App />} />
-            <Route path="meus-repositorios" element={<MyRepos />} />
-            <Route path="favoritos" element={<div>favoritos</div>} />
-          </Routes>
-        </div>
-      </div>
-    </BrowserRouter>
+    <RouterProvider router={router} />
   </StrictMode>
 );

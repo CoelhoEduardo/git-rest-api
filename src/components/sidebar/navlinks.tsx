@@ -7,6 +7,10 @@ const links = [
     path: "/",
   },
   {
+    name: "Repositórios Públicos",
+    path: "/repositorios-publicos",
+  },
+  {
     name: "Meus repositórios",
     path: "/meus-repositorios",
   },
