@@ -1,13 +1,17 @@
 import { Outlet } from "react-router";
-import "./App.css";
-import SideBar from "./components/sidebar/sidebar";
+import { NavBar } from "./components/NavBar/NavBar";
+import classes from "./App.module.css";
 
 function App() {
   return (
-    <>
-      <SideBar />
-      <Outlet />
-    </>
+    <div className={classes.app}>
+      <div className={classes.sidebar}>
+        <NavBar />
+      </div>
+      <div>
+        <Outlet />
+      </div>
+    </div>
   );
 }
 

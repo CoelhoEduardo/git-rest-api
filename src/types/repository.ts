@@ -1,4 +1,5 @@
 export type RepositoriesListProps = {
+  total_count: number;
   items: RepositoriesProps[];
 };
 

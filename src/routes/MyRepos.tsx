@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
 import { RepositoriesProps } from "../types/repository";
+import { RepoCard } from "../components/RepoCard/RepoCard";
 
 export const MyRepos = () => {
   const [repos, setRepos] = useState<RepositoriesProps[]>();
   useEffect(() => {
-    fetch("https://api.github.com/users/CoelhoEduardo/repos")
+    const headers = {
+      Accept: "application/vnd.github+json",
+      Authorization: `Bearer${import.meta.env.API_TOKEN}`,
+    };
+    fetch("https://api.github.com/users/CoelhoEduardo/repos", { headers })
       .then((response) => response.json())
       .then((data) => setRepos(data));
   }, []);
@@ -12,11 +17,8 @@ export const MyRepos = () => {
   return (
     <>
       <div>
-        {repos?.map((r) => (
-          <div key={r.id}>
-            <p>{r.name}</p>
-            <p>{r.description}</p>
-          </div>
+        {repos?.map((repo) => (
+          <RepoCard {...repo} />
         ))}
       </div>
     </>
