@@ -3,4 +3,32 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 30px;
+    
+}
+
+.pagination_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+    gap: 1rem;
+}
+
+.btn_pag {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px;
+    border-radius: 4px;
+    background-color: #2b3566;
+}
+
+.btn_pag:hover {
+    background-color: slategray;
+
+}
+.btn_pag:disabled {
+    opacity: 0.5;
 }
