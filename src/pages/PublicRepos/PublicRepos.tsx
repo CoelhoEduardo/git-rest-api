@@ -20,7 +20,6 @@ export const PublicRepos = () => {
 
     const headers = {
       Accept: "application/vnd.github+json",
-      Authorization: `Bearer${import.meta.env.API_TOKEN}`,
     };
 
     try {

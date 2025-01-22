@@ -20,7 +20,6 @@ export const Details = () => {
     setIsLoading(true);
     const headers = {
       Accept: "application/vnd.github+json",
-      Authorization: `Bearer${import.meta.env.API_TOKEN}`,
     };
     const res = await fetch(`https://api.github.com/repos/${owner}/${repo}`, {
       headers,

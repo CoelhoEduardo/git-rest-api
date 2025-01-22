@@ -12,7 +12,6 @@ export const MyRepos = () => {
     setIsLoading(true);
     const headers = {
       Accept: "application/vnd.github+json",
-      Authorization: `Bearer${import.meta.env.API_TOKEN}`,
     };
     fetch("https://api.github.com/users/CoelhoEduardo/repos", { headers })
       .then((response) => response.json())

@@ -9,7 +9,7 @@ import {
   MyRepos,
   Favorites,
   Details,
-} from "./routes/index.ts";
+} from "./pages/index.ts";
 
 const root = document.getElementById("root");
 

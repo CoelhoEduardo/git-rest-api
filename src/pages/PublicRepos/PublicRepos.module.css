@@ -20,12 +20,14 @@
 
 .btn_pag {
     padding-left: 16px;
+    font-weight: 500;
     padding-right: 16px;
     padding-top: 10px;
     padding-bottom: 10px;
     border: 1px;
-    border-radius: 4px;
-    background-color: #2b3566;
+    border-radius: 0.5rem;
+    background-color: #000;
+    cursor: pointer;
 }
 
 .btn_pag:hover {
