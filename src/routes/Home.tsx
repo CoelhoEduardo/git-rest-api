@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Search } from "../components/Search/Search";
-import { RepositoriesListProps } from "../types/repository";
+import { RepositoriesListProps } from "../types/repositorie";
 import { RepoCard } from "../components/RepoCard/RepoCard";
 import { Error } from "../components/Error";
 import { Loader } from "../components/Loader/Loader";
@@ -46,9 +46,12 @@ export const Home = () => {
       {repos && (
         <div>
           {repos.items?.map((repo) => (
-            <div key={repo.id}>
-              <RepoCard {...repo} />
-            </div>
+            <RepoCard
+              key={repo.id}
+              name={repo.name}
+              login={repo.owner.login}
+              description={repo.description}
+            />
           ))}
         </div>
       )}

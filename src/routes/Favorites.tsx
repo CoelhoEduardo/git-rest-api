@@ -1,16 +1,12 @@
 import { useEffect, useState } from "react";
 import { RepoCard } from "../components/RepoCard/RepoCard";
+import { FavoriteProps } from "../types/repositorie";
+import classes from "./Routes.module.css";
 
 const FAVORITES_KEY = "favorite_repositories";
 
-type FavoriteData = {
-  id: number;
-  login: string;
-  name: string;
-};
-
 export const Favorites = () => {
-  const [favorites, setFavorites] = useState<FavoriteData[]>([]);
+  const [favorites, setFavorites] = useState<FavoriteProps[]>([]);
 
   useEffect(() => {
     const storedFavorites = localStorage.getItem(FAVORITES_KEY);
@@ -20,15 +16,11 @@ export const Favorites = () => {
   }, []);
 
   return (
-    <div>
-      <p>Aqui os favoritos</p>
+    <div className={classes.page}>
+      <h2>Favoritos</h2>
+      {favorites.length === 0 && <p>Não há nenhum repósitorio favoritado</p>}
       {favorites?.map((repo) => (
-        <RepoCard
-          key={repo.id}
-          id={repo.id}
-          name={repo.name}
-          owner={repo.owner}
-        />
+        <RepoCard key={repo.id} name={repo.name} login={repo.login} />
       ))}
     </div>
   );

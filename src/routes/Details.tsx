@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { RepositoriesProps } from "../types/repository";
+import { RepositoriesProps } from "../types/repositorie";
 import { Loader } from "../components/Loader/Loader";
-import { formatDate } from "../utils";
-import classes from "./Details.module.css";
-import { FavoriteButton } from "../components/FavoriteButton/FavoriteButton";
+import classes from "./Routes.module.css";
+import { RepoCard } from "../components/RepoCard/RepoCard";
 
 export const Details = () => {
   const { owner, repo } = useParams();
@@ -36,18 +35,17 @@ export const Details = () => {
 
   if (!repoDetails && isLoading) return <Loader />;
   return (
-    <div className={classes.details}>
+    <div className={classes.page}>
       <h2>Detalhes do Repósitório</h2>
-      <section className={classes.content}>
-        <h3>{repoDetails?.name}</h3>
-        <FavoriteButton {...repoDetails!} />
-        <p>{repoDetails?.description}</p>
-        <p>{repoDetails?.language}</p>
-        <div className={classes.details_footer}>
-          <p>{repoDetails?.owner.login}</p>
-          <p>{formatDate(repoDetails?.updated_at)}</p>
-        </div>
-      </section>
+      <RepoCard
+        id={repoDetails?.id}
+        name={repoDetails?.name!}
+        login={repoDetails?.owner.login!}
+        description={repoDetails?.description!}
+        language={repoDetails?.language}
+        updated_at={repoDetails?.updated_at}
+        hasFavorite
+      />
     </div>
   );
 };

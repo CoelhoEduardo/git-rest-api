@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { RepositoriesProps } from "../types/repository";
+import { RepositoriesProps } from "../types/repositorie";
 import { RepoCard } from "../components/RepoCard/RepoCard";
 import { Loader } from "../components/Loader/Loader";
 
 export const MyRepos = () => {
-  const [repos, setRepos] = useState<RepositoriesProps[] | null>();
+  const [repos, setRepos] = useState<RepositoriesProps[] | null>([]);
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     setRepos(null);
@@ -25,9 +25,12 @@ export const MyRepos = () => {
       <div>
         {isLoading && <Loader />}
         {repos?.map((repo) => (
-          <div key={repo.id}>
-            <RepoCard {...repo} />
-          </div>
+          <RepoCard
+            key={repo.id}
+            name={repo.name}
+            login={repo.owner.login}
+            description={repo.description}
+          />
         ))}
       </div>
     </>

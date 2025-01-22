@@ -1,58 +1,53 @@
 import { useEffect, useState } from "react";
-import { RepositoriesProps } from "../../types/repository";
-
-type FavoriteData = {
-  id: number;
-  name: string;
-  login: string;
-  addedAt?: number;
-};
+import { FavoriteProps } from "../../types/repositorie";
+import { BsStar, BsStarFill } from "react-icons/bs";
+import classes from "./FavoriteBtn.module.css";
+import { IconContext } from "react-icons";
 
 const FAVORITES_KEY = "favorite_repositories";
 
-export const FavoriteButton = ({ ...repo }: RepositoriesProps) => {
-  const [favorites, setFavorites] = useState<FavoriteData[]>([]);
+export const FavoriteButton = ({ id, name, login }: FavoriteProps) => {
+  const [isFavorited, setIsFavorited] = useState(false);
 
   useEffect(() => {
     const storedFavorites = localStorage.getItem(FAVORITES_KEY);
     if (storedFavorites) {
-      const parsedFavorites: FavoriteData[] = JSON.parse(storedFavorites);
-
-      const validFavorites = parsedFavorites.filter(
-        (fav) => Date.now() - fav.addedAt! < 24 * 60 * 60 * 1000
-      );
-
-      setFavorites(validFavorites);
-
-      localStorage.setItem(FAVORITES_KEY, JSON.stringify(validFavorites));
+      const favorites = JSON.parse(storedFavorites);
+      setIsFavorited(favorites.some((fav: any) => fav.id === id));
     }
-  }, []);
+  }, [id]);
 
   const toogleFavorite = () => {
-    const isFavorited = favorites.some((fav) => fav.id === repo.id);
+    const storedFavorites = localStorage.getItem(FAVORITES_KEY);
+    let favorites = storedFavorites ? JSON.parse(storedFavorites) : [];
 
     if (isFavorited) {
-      const updatedFavorites = favorites.filter((fav) => fav.id !== repo.id);
-      setFavorites(updatedFavorites);
-      localStorage.setItem(FAVORITES_KEY, JSON.stringify(updatedFavorites));
+      favorites = favorites.filter((fav: any) => fav.id !== id);
     } else {
-      const newFavorite: FavoriteData = {
-        id: repo.id,
-        name: repo.name,
-        login: repo.owner.login,
-        addedAt: Date.now(),
-      };
-
-      const updataedFavorites = [...favorites, newFavorite];
-      setFavorites(updataedFavorites);
-      localStorage.setItem(FAVORITES_KEY, JSON.stringify(updataedFavorites));
+      favorites.push({ id, name, login });
     }
+
+    localStorage.setItem(FAVORITES_KEY, JSON.stringify(favorites));
+    setIsFavorited(!isFavorited);
   };
 
-  const isFavorited = favorites.some((fav) => fav.id === repo.id);
   return (
-    <button style={{ backgroundColor: "red" }} onClick={toogleFavorite}>
-      {isFavorited ? "Unfavorite" : "Favorite"}
-    </button>
+    <div className={classes.fv_btn}>
+      <button onClick={toogleFavorite}>
+        {isFavorited ? (
+          <IconContext.Provider value={{ size: "20px" }}>
+            <div>
+              <BsStarFill />
+            </div>
+          </IconContext.Provider>
+        ) : (
+          <IconContext.Provider value={{ size: "20px" }}>
+            <div>
+              <BsStar />
+            </div>
+          </IconContext.Provider>
+        )}
+      </button>
+    </div>
   );
 };

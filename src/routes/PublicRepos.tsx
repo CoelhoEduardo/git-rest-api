@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { RepositoriesProps } from "../types/repository";
+import { RepositoriesProps } from "../types/repositorie";
 import { RepoCard } from "../components/RepoCard/RepoCard";
 import { Loader } from "../components/Loader/Loader";
 
@@ -25,9 +25,12 @@ export const PublicRepos = () => {
       <div>
         {isLoading && <Loader />}
         {repos?.map((repo) => (
-          <div key={repo.id}>
-          <RepoCard {...repo} />
-        </div>
+          <RepoCard
+            key={repo.id}
+            name={repo.name}
+            login={repo.owner.login}
+            description={repo.description}
+          />
         ))}
       </div>
     </>

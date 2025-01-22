@@ -1,4 +1,4 @@
-.repo_card{
+.card{
     background-color: #2b3566;
     padding: 2rem;
     border-radius: 1rem;
@@ -11,11 +11,30 @@
     margin-top: 6px;
 }
 
-.repo_card h2, a {
+.card h2, a {
     font-size: large;
     text-decoration: underline;
 }
 
-.repo_card p {
+.card p {
     text-align: left;
+}
+
+.card_header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content:center;
+    align-items: center;
+}
+
+.card_footer {
+    display: flex;
+    width: 100%;
+    justify-content:space-between;
+    margin-top: 6px;
+}
+
+.fv_button {
+    align-self: end;
 }
