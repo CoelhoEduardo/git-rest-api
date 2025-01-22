@@ -6,6 +6,7 @@ import { RouterProvider, createBrowserRouter } from "react-router";
 import { MyRepos } from "./routes/MyRepos.tsx";
 import { Home } from "./routes/Home.tsx";
 import { PublicRepos } from "./routes/PublicRepos.tsx";
+import { Details } from "./routes/Details.tsx";
 
 const root = document.getElementById("root");
 
@@ -31,8 +32,8 @@ const router = createBrowserRouter([
         element: <div>oi</div>,
       },
       {
-        path: "detalhes",
-        element: <div>oi</div>,
+        path: "detalhes/:owner/:repo",
+        element: <Details />,
       },
     ],
   },

@@ -3,7 +3,8 @@
     width: 100%;
     justify-content: center;
     padding: 16px 8px;
-    background: #121637;
+    background: #2b3566;
+    border-radius: 1rem;
 }
 
 
@@ -13,8 +14,10 @@
     font-size: 14px;
     line-height: 20px;
     font-weight: 500;
+    text-decoration: none;
 }
 
 .nav_link p:hover {
     text-decoration: underline;
+    color: rgb(229 231 235);
 }

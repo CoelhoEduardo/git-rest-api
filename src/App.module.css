@@ -10,10 +10,6 @@
     text-align: center;
 }
 
-.sidebar {
-    width: 100%;
-}
-
 .outlet {
     flex-grow: 1;
     overflow-y: auto;

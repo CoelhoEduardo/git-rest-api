@@ -5,9 +5,7 @@ import classes from "./App.module.css";
 function App() {
   return (
     <div className={classes.app}>
-      <div className={classes.sidebar}>
         <NavBar />
-      </div>
       <div>
         <Outlet />
       </div>
