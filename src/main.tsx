@@ -7,6 +7,7 @@ import { MyRepos } from "./routes/MyRepos.tsx";
 import { Home } from "./routes/Home.tsx";
 import { PublicRepos } from "./routes/PublicRepos.tsx";
 import { Details } from "./routes/Details.tsx";
+import { Favorites } from "./routes/Favorites.tsx";
 
 const root = document.getElementById("root");
 
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: "favoritos",
-        element: <div>oi</div>,
+        element: <Favorites />,
       },
       {
         path: "detalhes/:owner/:repo",

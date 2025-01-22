@@ -4,6 +4,7 @@ import { RepositoriesProps } from "../types/repository";
 import { Loader } from "../components/Loader/Loader";
 import { formatDate } from "../utils";
 import classes from "./Details.module.css";
+import { FavoriteButton } from "../components/FavoriteButton/FavoriteButton";
 
 export const Details = () => {
   const { owner, repo } = useParams();
@@ -39,6 +40,7 @@ export const Details = () => {
       <h2>Detalhes do Repósitório</h2>
       <section className={classes.content}>
         <h3>{repoDetails?.name}</h3>
+        <FavoriteButton {...repoDetails!} />
         <p>{repoDetails?.description}</p>
         <p>{repoDetails?.language}</p>
         <div className={classes.details_footer}>
