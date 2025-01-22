@@ -1,0 +1,26 @@
+.page {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.page h2 {
+    margin-top: 20px;
+}
+
+.contributors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.contributors img {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #644aff;
+    border-radius: 50%;
+    margin: 0 auto;
+}

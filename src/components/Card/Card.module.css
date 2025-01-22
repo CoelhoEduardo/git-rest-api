@@ -8,12 +8,18 @@
     justify-content: center;
     gap: 1rem;
     margin-bottom: 6px;
-    margin-top: 6px;
+    margin-top: 30px;
+    max-width: 500px;
+    min-width: 400px;
 }
 
-.card h2, a {
+.card h2 {
     font-size: large;
+}
+
+.card a {
     text-decoration: underline;
+    font-size: small;
 }
 
 .card p {
@@ -34,6 +40,14 @@
     justify-content:space-between;
     margin-top: 6px;
 }
+
+.card_divider {
+    border-top: 1px solid #f6f6f6;
+    width: 500px;
+    margin-top: 3px;
+    margin-bottom: 20px;
+}
+
 
 .fv_button {
     align-self: end;

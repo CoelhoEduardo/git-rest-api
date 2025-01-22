@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { RepositoriesProps } from "../types/repositorie";
-import { RepoCard } from "../components/RepoCard/RepoCard";
-import { Loader } from "../components/Loader/Loader";
-import { Error } from "../components/Error";
-import classes from "./Routes.module.css";
+import { RepositoriesProps } from "../../types/repositorie";
+import classes from "./PublicRepos.module.css";
+import { Link } from "react-router";
+import { Loader, Card, Error } from "../../components";
 
 export const PublicRepos = () => {
   const [repos, setRepos] = useState<RepositoriesProps[] | null>();
@@ -95,16 +94,20 @@ export const PublicRepos = () => {
       <div>
         {isLoading && <Loader />}
         {currentRepos.map((repo) => (
-          <RepoCard
+          <Card
             key={repo.id}
-            name={repo.name}
-            login={repo.owner.login}
-            description={repo.description}
+            title={
+              <Link to={`/detalhes/${repo.owner.login}/${repo.name}`}>
+                <h2>
+                  {repo.owner.login}/{repo.name}
+                </h2>
+              </Link>
+            }
+            card_body={<p>{repo.description}</p>}
           />
         ))}
         {error && <Error error={"Erro na requisição"} />}
       </div>
-
       {!error && !isLoading && currentRepos.length > 0 && (
         <div className={classes.pagination_container}>
           <button
@@ -114,11 +117,7 @@ export const PublicRepos = () => {
           >
             Anterior
           </button>
-
-          <span>
-            Página {currentPage + 1}
-          </span>
-
+          <span>Página {currentPage + 1}</span>
           <button
             onClick={handleNext}
             disabled={!showNext || isLoading}

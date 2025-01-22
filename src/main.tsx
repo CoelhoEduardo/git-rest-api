@@ -3,11 +3,13 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
 import { RouterProvider, createBrowserRouter } from "react-router";
-import { MyRepos } from "./routes/MyRepos.tsx";
-import { Home } from "./routes/Home.tsx";
-import { PublicRepos } from "./routes/PublicRepos.tsx";
-import { Details } from "./routes/Details.tsx";
-import { Favorites } from "./routes/Favorites.tsx";
+import {
+  Home,
+  PublicRepos,
+  MyRepos,
+  Favorites,
+  Details,
+} from "./routes/index.ts";
 
 const root = document.getElementById("root");
 

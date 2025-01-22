@@ -1,0 +1,12 @@
+.page {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.page h2 p {
+    margin-top: 20px;
+}
+

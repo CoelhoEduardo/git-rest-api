@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { Search } from "../components/Search/Search";
-import { RepositoriesListProps } from "../types/repositorie";
-import { RepoCard } from "../components/RepoCard/RepoCard";
-import { Error } from "../components/Error";
-import { Loader } from "../components/Loader/Loader";
+import { RepositoriesListProps } from "../../types/repositorie";
+import { Link } from "react-router";
+import classes from "./Home.module.css";
+import { Search, Loader, Card, Error } from "../../components";
 
 export const Home = () => {
   const [repos, setRepos] = useState<RepositoriesListProps | null>();
@@ -40,26 +39,30 @@ export const Home = () => {
   };
 
   return (
-    <>
+    <div className={classes.page}>
       <Search searchRepos={searchRepos} />
-      {isLoading && <Loader />}
-      {repos && (
-        <div>
-          {repos.items?.map((repo) => (
-            <RepoCard
-              key={repo.id}
-              name={repo.name}
-              login={repo.owner.login}
-              description={repo.description}
-            />
-          ))}
-        </div>
-      )}
+
+      <div>
+        {isLoading && <Loader />}
+        {repos?.items?.map((repo) => (
+          <Card
+            key={repo.id}
+            title={
+              <Link to={`/detalhes/${repo.owner.login}/${repo.name}`}>
+                <h2>
+                  {repo.owner.login}/{repo.name}
+                </h2>
+              </Link>
+            }
+            card_body={<p>{repo.description}</p>}
+          />
+        ))}
+      </div>
       {error && (
         <Error
           error={`Repositórios não encontrado: ${repos?.total_count} resultados`}
         />
       )}
-    </>
+    </div>
   );
 };

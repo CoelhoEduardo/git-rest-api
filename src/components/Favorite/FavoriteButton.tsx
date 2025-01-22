@@ -34,19 +34,11 @@ export const FavoriteButton = ({ id, name, login }: FavoriteProps) => {
   return (
     <div className={classes.fv_btn}>
       <button onClick={toogleFavorite}>
-        {isFavorited ? (
-          <IconContext.Provider value={{ size: "20px" }}>
-            <div>
-              <BsStarFill />
-            </div>
-          </IconContext.Provider>
-        ) : (
-          <IconContext.Provider value={{ size: "20px" }}>
-            <div>
-              <BsStar />
-            </div>
-          </IconContext.Provider>
-        )}
+        <IconContext.Provider
+          value={{ size: "20px", color: isFavorited ? "gold" : "gray" }}
+        >
+          <div>{isFavorited ? <BsStarFill /> : <BsStar />}</div>
+        </IconContext.Provider>
       </button>
     </div>
   );
