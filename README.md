@@ -1,4 +1,4 @@
-# Kria Test Project
+# Github API REST Project
 
 Projeto construído para consumir a API do Github: [Documentação da API](https://docs.github.com/pt/rest?apiVersion=2022-11-28)
 
@@ -7,13 +7,13 @@ Projeto construído para consumir a API do Github: [Documentação da API](https
   - TypeScript
   - React Router
   - React Icons
-  - Vite (Apenas para configuração)
+  - Vite
 
 ## Instalação
 
 ```bash
-git clone git@github.com:CoelhoEduardo/kria-test.git
-cd kria-test
+git clone git@github.com:CoelhoEduardo/git-rest-api.git
+cd git-rest-api
 npm install
 ```
 ## Execução
